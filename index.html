@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PalacioTECH BLOG — El punto donde convergen las ideas y la inspiracion</title>
+<meta name="description" content="Vértice IA es la publicación editorial dedicada a inteligencia artificial, robótica, automatización y el futuro de la innovación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08090b;
+    --surface:#10141a;
+    --surface-2:#171c23;
+    --card:#121820;
+    --border:rgba(196,207,218,.14);
+    --border-strong:rgba(221,230,238,.30);
+    --text:#f4f6f8;
+    --text-2:#aab5c1;
+    --accent:#46a7ff;
+    --accent-2:#91ccff;
+    --gold:#d9a92f;
+    --gold-light:#f5ce62;
+    --font-serif:'Cinzel', Georgia, serif;
+    --font-sans:'Inter', -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --gradient:linear-gradient(115deg, #d8e0e7 0%, #7faee0 28%, #267dd1 52%, #0d315e 70%, #d6a52c 100%);
+    --metal-gradient:linear-gradient(135deg, #f8fafb 0%, #aebac5 25%, #ffffff 46%, #6d7b88 74%, #dbe3e9 100%);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:radial-gradient(circle at 85% -10%, rgba(38,125,209,.17), transparent 28%), var(--bg);
+    color:var(--text);
+    font-family:var(--font-sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  ::selection{background:var(--gold); color:#08090b;}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 32px;}
+
+  /* fade-in on scroll */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* eyebrow */
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(8,9,11,.82);
+    backdrop-filter:blur(16px) saturate(140%);
+    -webkit-backdrop-filter:blur(16px) saturate(140%);
+    border-bottom:1px solid var(--border);
+    transition:border-color .3s;
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#fff;
+    font-size:1.35rem;
+    font-weight:700;
+}
+
+.logo-img{
+    width:122px;
+    height:85 px;
+    object-fit:contain;
+}
+
+  .logo:hover{filter:drop-shadow(0 0 10px rgba(70,167,255,.28));}
+  .nav-links{
+    display:flex; gap:36px; list-style:none;
+  }
+  .nav-links a{
+    font-size:14.5px; color:var(--text-2); font-weight:500;
+    position:relative; padding:6px 0;
+    transition:color .25s;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--accent); transition:width .3s cubic-bezier(.16,1,.3,1);
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-actions{display:flex; align-items:center; gap:20px;}
+  .icon-btn{
+    width:38px; height:38px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-2); border:1px solid var(--border);
+    transition:all .25s;
+  }
+  .icon-btn:hover{color:var(--text); border-color:var(--border-strong); background:rgba(255,255,255,.04);}
+  .btn{
+    font-family:var(--font-sans); font-weight:600; font-size:14px;
+    padding:11px 22px; border-radius:999px; border:1px solid transparent;
+    cursor:pointer; transition:all .3s cubic-bezier(.16,1,.3,1);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{
+    background:var(--metal-gradient); color:#111820;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 5px 16px rgba(0,0,0,.2);
+  }
+  .btn-primary:hover{
+    box-shadow:0 0 0 1px var(--gold), 0 0 24px rgba(70,167,255,.42);
+    transform:translateY(-1px);
+  }
+  .btn-ghost{
+    border-color:var(--border-strong); color:var(--text);
+  }
+  .btn-ghost:hover{background:rgba(70,167,255,.09); border-color:var(--gold);}
+
+  @media(max-width:900px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:120px 0 100px;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .hero{
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:0;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8,9,11,.40),
+            rgba(8,9,11,.78)
+        );
+
+    z-index:1;
+}
+
+.hero-glow{
+    z-index:2;
+}
+
+.hero-inner{
+    position:relative;
+    z-index:3;
+}
+  #network{
+    position:absolute; inset:0; width:100%; height:100%;
+    opacity:.55;
+  }
+  .hero-glow{
+    position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+    width:900px; height:600px;
+    background:radial-gradient(ellipse at center, rgba(70,167,255,.20), transparent 55%, rgba(217,169,47,.08) 70%, transparent 74%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2; max-width:840px;}
+  .hero h1{
+    font-family:var(--font-serif);
+    font-weight:600;
+    font-size:clamp(40px, 6vw, 76px);
+    line-height:1.05;
+    letter-spacing:-.02em;
+    margin:22px 0 26px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:var(--gradient);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{
+    font-size:clamp(16px,1.6vw,19px);
+    color:var(--text-2);
+    max-width:560px;
+    margin-bottom:40px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-stats{
+    display:flex; gap:48px; margin-top:80px; flex-wrap:wrap;
+  }
+  .stat-num{font-family:var(--font-serif); font-size:32px; font-weight:600;}
+  .stat-label{font-size:13px; color:var(--text-2); margin-top:4px;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:96px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:48px; gap:24px; flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:var(--font-serif);
+    font-weight:600;
+    font-size:clamp(28px,3vw,40px);
+    letter-spacing:-.01em;
+    margin-top:14px;
+  }
+  .section-head p{color:var(--text-2); max-width:480px; font-size:15px;}
+  .view-all{
+    font-size:14px; font-weight:600; color:var(--accent);
+    display:flex; align-items:center; gap:6px; white-space:nowrap;
+    transition:gap .25s;
+  }
+  .view-all:hover{gap:10px;}
+
+  /* ---------- FEATURED ---------- */
+  .featured{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
+  }
+  .featured-media{
+    aspect-ratio:4/3; border-radius:20px; position:relative; overflow:hidden;
+    background:linear-gradient(145deg,#0a1018,#163b65 42%,#1e6daf 68%,#a97718 130%);
+    border:1px solid var(--border);
+  }
+  .featured-media::before{
+    content:''; position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(145,204,255,.42), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(217,169,47,.34), transparent 42%);
+  }
+  .featured-media .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:36px 36px;
+  }
+  .tag{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:6px 12px; border-radius:6px; border:1px solid var(--border-strong);
+    color:var(--accent-2); display:inline-block;
+  }
+  .featured-body .tag{margin-bottom:18px;}
+  .featured-body h3{
+    font-family:var(--font-serif); font-weight:600;
+    font-size:clamp(26px,2.6vw,36px); line-height:1.15; letter-spacing:-.01em;
+    margin-bottom:18px;
+  }
+  .featured-body p{color:var(--text-2); font-size:16px; margin-bottom:28px;}
+  .byline{display:flex; align-items:center; gap:14px;}
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--gradient); flex-shrink:0;
+  }
+  .byline-meta p{font-size:13.5px; color:var(--text); margin:0; font-weight:600;}
+  .byline-meta span{font-size:12.5px; color:var(--text-2);}
+
+  @media(max-width:860px){ .featured{grid-template-columns:1fr;} }
+
+  /* ---------- TRENDING ---------- */
+  .trending-list{display:flex; flex-direction:column;}
+  .trend-item{
+    display:grid; grid-template-columns:56px 1fr auto; align-items:center; gap:24px;
+    padding:22px 0; border-bottom:1px solid var(--border);
+    transition:padding-left .3s;
+  }
+  .trend-item:hover{padding-left:8px;}
+  .trend-item:last-child{border-bottom:none;}
+  .trend-rank{
+    font-family:var(--font-serif); font-size:28px; color:var(--border-strong); font-weight:600;
+    transition:color .3s;
+  }
+  .trend-item:hover .trend-rank{color:var(--accent);}
+  .trend-title{font-size:16.5px; font-weight:500;}
+  .trend-cat{font-size:12.5px; color:var(--text-2); font-family:var(--font-mono); margin-top:4px;}
+  .trend-arrow{color:var(--text-2); transition:transform .3s, color .3s;}
+  .trend-item:hover .trend-arrow{transform:translateX(4px); color:var(--accent);}
+
+  /* ---------- CARD GRID ---------- */
+  .card-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+  }
+  @media(max-width:960px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.card-grid{grid-template-columns:1fr;}}
+
+  .article-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+    transition:transform .4s cubic-bezier(.16,1,.3,1), border-color .4s, box-shadow .4s;
+  }
+  .article-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--border-strong);
+    box-shadow:0 20px 50px -20px rgba(38,125,209,.45), 0 0 0 1px rgba(217,169,47,.16);
+  }
+  .card-media{
+    aspect-ratio:16/10; position:relative; overflow:hidden;
+  }
+  .card-media .fill{
+    position:absolute; inset:0; transition:transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .article-card:hover .card-media .fill{transform:scale(1.06);}
+  .card-body{padding:22px 22px 26px;}
+  .card-body .tag{margin-bottom:14px;}
+  .card-body h4{
+    font-family:var(--font-serif); font-weight:600; font-size:19px; line-height:1.3;
+    margin-bottom:10px; letter-spacing:-.005em;
+  }
+  .card-body p{font-size:14px; color:var(--text-2); margin-bottom:18px;}
+  .card-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12.5px; color:var(--text-2); font-family:var(--font-mono);
+    padding-top:16px; border-top:1px solid var(--border);
+  }
+
+  /* ---------- CATEGORIES ---------- */
+  .pill-cloud{display:flex; flex-wrap:wrap; gap:12px;}
+  .pill{
+    font-size:14px; font-weight:500; padding:10px 20px; border-radius:999px;
+    border:1px solid var(--border); color:var(--text-2);
+    transition:all .3s;
+  }
+  .pill:hover{color:var(--text); border-color:var(--gold); background:rgba(70,167,255,.10);}
+
+  /* ---------- TOOLS ---------- */
+  .tool-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:26px; transition:all .3s;
+  }
+  .tool-card:hover{border-color:rgba(217,169,47,.48); background:#172231; box-shadow:0 16px 38px -26px rgba(70,167,255,.7);}
+  .tool-icon{
+    width:44px; height:44px; border-radius:10px; margin-bottom:18px;
+    background:var(--metal-gradient); border:1px solid rgba(217,169,47,.55); display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-serif); font-weight:700; color:#102745; font-size:18px;
+  }
+  .tool-card h4{font-size:16.5px; font-weight:600; margin-bottom:8px;}
+  .tool-card p{font-size:13.5px; color:var(--text-2); margin-bottom:16px;}
+  .tool-meta{display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--text-2);}
+  .tools-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media(max-width:960px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.tools-grid{grid-template-columns:1fr;}}
+
+  /* ---------- MEDIA ROW: podcast + video ---------- */
+  .media-row{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  @media(max-width:860px){.media-row{grid-template-columns:1fr;}}
+  .media-card{
+    background:var(--card); border:1px solid var(--border); border-radius:18px;
+    padding:32px; display:flex; flex-direction:column; gap:20px; position:relative; overflow:hidden;
+  }
+  .media-card .play{
+    width:56px; height:56px; border-radius:50%; background:var(--metal-gradient); color:#102745;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition:transform .3s;
+  }
+  .media-card:hover .play{transform:scale(1.08);}
+  .media-top{display:flex; gap:18px; align-items:center;}
+  .media-card h4{font-family:var(--font-serif); font-size:20px; font-weight:600;}
+  .media-card p{color:var(--text-2); font-size:14px;}
+
+  /* ---------- NEWSLETTER ---------- */
+  .newsletter{
+    position:relative; border-radius:24px; overflow:hidden;
+    padding:72px 56px; text-align:center;
+    border:1px solid var(--border);
+  }
+  .newsletter::before{
+    content:''; position:absolute; inset:0; background:linear-gradient(115deg, rgba(70,167,255,.40), rgba(217,169,47,.32)); opacity:.38;
+  }
+  .newsletter-inner{position:relative; z-index:1; max-width:560px; margin:0 auto;}
+  .newsletter h2{
+    font-family:var(--font-serif); font-weight:600; font-size:clamp(28px,3.4vw,42px);
+    margin:18px 0 14px; letter-spacing:-.01em;
+  }
+  .newsletter p{color:var(--text-2); margin-bottom:32px;}
+  .news-form{display:flex; gap:12px; max-width:420px; margin:0 auto; flex-wrap:wrap; justify-content:center;}
+  .news-form input{
+    flex:1; min-width:220px; background:rgba(255,255,255,.05); border:1px solid var(--border-strong);
+    border-radius:999px; padding:13px 20px; color:var(--text); font-size:14px; font-family:var(--font-sans);
+  }
+  .news-form input:focus{outline:2px solid var(--accent); outline-offset:2px;}
+  .news-form input::placeholder{color:var(--text-2);}
+  .news-fine{font-size:12px; color:var(--text-2); margin-top:16px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--border); padding:72px 0 40px;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.4fr repeat(4, 1fr); gap:40px; margin-bottom:64px;
+  }
+  @media(max-width:860px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+  .footer-grid h5{font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-2); margin-bottom:18px; font-family:var(--font-mono); font-weight:500;}
+  .footer-grid ul{list-style:none; display:flex; flex-direction:column; gap:12px;}
+  .footer-grid a{font-size:14px; color:var(--text-2); transition:color .25s;}
+  .footer-grid a:hover{color:var(--accent);}
+  .footer-brand p{color:var(--text-2); font-size:14px; max-width:280px; margin-top:16px;}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    padding-top:32px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--text-2);
+  }
+  .social-row{display:flex; gap:14px;}
+  .footer-logo{display:inline-flex; align-items:center;}
+  .footer-logo img{width:168px; height:112px; object-fit:contain; object-position:left center; filter:drop-shadow(0 8px 18px rgba(0,0,0,.42));}
+
+  @media(max-width:640px){
+    .wrap{padding:0 20px;}
+    .section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="/" class="logo">
+      <img src="/src/img/logo_v0.3.png" alt="PalacioTECH Blog Logo" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#destacado">Tecnologias</a></li>
+      <li><a href="#articulos">Artículos</a></li>
+      <li><a href="#herramientas">Proyectos</a></li>
+      <li><a href="#voces"></a></li>
+      <li><a href="#categorias">Startups</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="Buscar">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <a href="#suscribete" class="btn btn-primary">Suscribirme</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="/src/videos/palaciotech.mp4" type="video/mp4">
+</video>
+
+<div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">IA, software y tecnología sin humo.</span>
+    <h1>Aprende a <em>construir el futuro digital </em>una idea a la vez.</h1>
+    <p>No publicamos contenido para seguir tendencias. <br> Publicamos conocimiento para ayudarte a entenderlas, dominarlas y transformarlas en oportunidades. <br> <br> Bienvenido a un espacio donde la inteligencia artificial, el software y la innovación se convierten en herramientas para crear el futuro.</p>
+    <div class="hero-ctas">
+      <a href="#articulos" class="btn btn-primary">Leer últimos artículos</a>
+      <a href="#tendencias_ia" class="btn btn-ghost">Explorar tendencias IA</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">0</div><div class="stat-label">Artículos publicados</div></div>
+      <div><div class="stat-num">0</div><div class="stat-label">Lectores semanales</div></div>
+      <div><div class="stat-num">0</div><div class="stat-label">Países alcanzados</div></div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <section class="section" id="destacado">
+    <div class="wrap">
+      <div class="featured reveal">
+        <div class="featured-media">
+          <div class="grid-overlay"></div>
+        </div>
+        <div class="featured-body">
+          <span class="tag">El momento es ahora.</span>
+          <h3>Construye lo que imaginas.</h3>
+          <p>Las grandes ideas no nacen completas. Comienzan con una pregunta, una línea de código, un experimento o la curiosidad de aprender algo nuevo. Cada artículo de PalacioTECH Blog está diseñado para ayudarte a convertir el conocimiento en proyectos reales, impulsando tus habilidades en inteligencia artificial, desarrollo de software y tecnología aplicada.</p>
+          <div class="byline">
+            <div class="avatar"></div>
+            <div class="byline-meta">
+            <p>Jesús Palacio</p>
+            <span>Fundador de PalacioTECH SAS · ultima actualizacion · 18 jul 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Kit de desarrollo web</span>
+          <h2>Aprende, construye y domina las tecnologías web</h2>
+        </div>
+        <a href="#" class="view-all">Ver todo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="trending-list reveal">
+        <a href="#" class="trend-item">
+          <span class="trend-rank">01</span>
+          <div><div class="trend-title">HTML5</div><div class="trend-cat">Lenguaje de etiquetado para maquetacion web</div></div>
+          <span class="trend-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="#" class="trend-item">
+          <span class="trend-rank">02</span>
+          <div><div class="trend-title">CSS3</div><div class="trend-cat">Lenguaje de estilización web</div></div>
+          <span class="trend-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="#" class="trend-item">
+          <span class="trend-rank">03</span>
+          <div><div class="trend-title">JavaScript</div><div class="trend-cat">Lenguaje de programación para el comportamiento web</div></div>
+          <span class="trend-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="#" class="trend-item">
+          <span class="trend-rank">04</span>
+          <div><div class="trend-title">Fundamentos de Prompt Engineering</div><div class="trend-cat">PROMPT ENGINEERING</div></div>
+          <span class="trend-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="articulos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Actualidad</span>
+          <h2>Últimos artículos</h2>
+          <p>Cobertura diaria sobre los lanzamientos, papers y decisiones que están moviendo la industria.</p>
+        </div>
+        <a href="#" class="view-all">Ver archivo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="card-grid">
+        <article class="article-card reveal">
+          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#07121f,#15528a 60%,#91ccff);"></div></div>
+          <div class="card-body">
+            <span class="tag">Machine Learning</span>
+            <h4>Por qué los modelos pequeños están ganando terreno frente a los gigantes</h4>
+            <p>La eficiencia por parámetro se convierte en la nueva métrica que importa a los equipos de producto.</p>
+            <div class="card-meta"><span>Diego Franco</span><span>6 min</span></div>
+          </div>
+        </article>
+        <article class="article-card reveal">
+          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#08101a,#17395d 55%,#46a7ff);"></div></div>
+          <div class="card-body">
+            <span class="tag">IA Generativa</span>
+            <h4>Dentro del nuevo motor de video que genera escenas de diez minutos</h4>
+            <p>Analizamos la arquitectura detrás del salto de calidad en generación de video con coherencia temporal.</p>
+            <div class="card-meta"><span>Valentina Ríos</span><span>8 min</span></div>
+          </div>
+        </article>
+        <article class="article-card reveal">
+          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#09151d,#164f70 55%,#7fbee9);"></div></div>
+          <div class="card-body">
+            <span class="tag">Ciberseguridad</span>
+            <h4>Los ataques de prompt injection que ya preocupan a la banca</h4>
+            <p>Equipos de seguridad describen los vectores más comunes contra agentes con acceso a sistemas críticos.</p>
+            <div class="card-meta"><span>Mauricio León</span><span>7 min</span></div>
+          </div>
+        </article>
+        <article class="article-card reveal">
+          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#171107,#5c4212 55%,#f5ce62);"></div></div>
+          <div class="card-body">
+            <span class="tag">Futuro del Trabajo</span>
+            <h4>Cómo tres equipos de diseño reorganizaron sus flujos con agentes de IA</h4>
+            <p>Casos reales de estudios que redujeron a la mitad el tiempo de iteración creativa.</p>
+            <div class="card-meta"><span>Camila Duarte</span><span>5 min</span></div>
+          </div>
+        </article>
+        <article class="article-card reveal">
+          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#07111e,#183b67 55%,#46a7ff);"></div></div>
+          <div class="card-body">
+            <span class="tag">Robótica</span>
+            <h4>El brazo robótico que aprende tareas nuevas viendo un solo video</h4>
+            <p>Un vistazo al aprendizaje por imitación de una sola muestra aplicado a manufactura ligera.</p>
+            <div class="card-meta"><span>Renata Ibarra</span><span>9 min</span></div>
+          </div>
+        </article>
+        <article class="article-card reveal">
+          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#0b131d,#1a4777 55%,#d9a92f);"></div></div>
+          <div class="card-body">
+            <span class="tag">Computación Cuántica</span>
+            <h4>Qué significa realmente la última corrección de errores cuánticos</h4>
+            <p>Traducimos el paper más citado del mes a términos que cualquier equipo de producto puede entender.</p>
+            <div class="card-meta"><span>Diego Franco</span><span>10 min</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="categorias" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Explorar</span>
+          <h2>Temas populares</h2>
+        </div>
+      </div>
+      <div class="pill-cloud reveal">
+        <a href="#" class="pill">Inteligencia Artificial</a>
+        <a href="#" class="pill">IA Generativa</a>
+        <a href="#" class="pill">Machine Learning</a>
+        <a href="#" class="pill">Robótica</a>
+        <a href="#" class="pill">Automatización</a>
+        <a href="#" class="pill">Agentes de IA</a>
+        <a href="#" class="pill">Prompt Engineering</a>
+        <a href="#" class="pill">OpenAI</a>
+        <a href="#" class="pill">Anthropic</a>
+        <a href="#" class="pill">Google AI</a>
+        <a href="#" class="pill">Microsoft AI</a>
+        <a href="#" class="pill">Startups</a>
+        <a href="#" class="pill">Futuro del Trabajo</a>
+        <a href="#" class="pill">Programación</a>
+        <a href="#" class="pill">Ciberseguridad</a>
+        <a href="#" class="pill">Cloud Computing</a>
+        <a href="#" class="pill">Computación Cuántica</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="herramientas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Directorio</span>
+          <h2>Herramientas de IA que vale la pena probar</h2>
+          <p>Una selección curada, actualizada cada semana por el equipo editorial.</p>
+        </div>
+        <a href="#" class="view-all">Ver directorio completo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card reveal">
+          <div class="tool-icon">Fl</div>
+          <h4>Flowmind</h4>
+          <p>Orquesta agentes multi-paso con memoria persistente y trazabilidad completa.</p>
+          <div class="tool-meta"><span>Agentes</span><span>Freemium</span></div>
+        </div>
+        <div class="tool-card reveal">
+          <div class="tool-icon">Sy</div>
+          <h4>Syntha</h4>
+          <p>Genera datasets sintéticos de alta fidelidad para entrenar modelos de visión.</p>
+          <div class="tool-meta"><span>Datos</span><span>De pago</span></div>
+        </div>
+        <div class="tool-card reveal">
+          <div class="tool-icon">Vo</div>
+          <h4>Voxframe</h4>
+          <p>Clona voces con control emocional fino para narración y doblaje.</p>
+          <div class="tool-meta"><span>Audio</span><span>De pago</span></div>
+        </div>
+        <div class="tool-card reveal">
+          <div class="tool-icon">Cd</div>
+          <h4>Codeloom</h4>
+          <p>Revisa pull requests completos y sugiere refactors con contexto de repositorio.</p>
+          <div class="tool-meta"><span>Programación</span><span>Gratis</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voces" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Escuchar y ver</span>
+          <h2>Voces de la industria</h2>
+        </div>
+      </div>
+      <div class="media-row reveal">
+        <div class="media-card">
+          <div class="media-top">
+            <div class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <div>
+              <span class="tag">Podcast · Episodio 84</span>
+            </div>
+          </div>
+          <h4>Cómo diseñar productos cuando el modelo cambia cada mes</h4>
+          <p>Conversamos con dos jefas de producto sobre construir experiencias estables sobre bases que evolucionan constantemente. 42 min.</p>
+        </div>
+        <div class="media-card">
+          <div class="media-top">
+            <div class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <div>
+              <span class="tag">Video · Entrevista</span>
+            </div>
+          </div>
+          <h4>Dentro del equipo que entrena modelos de robótica en simulación</h4>
+          <p>Un recorrido en video por el pipeline de entrenamiento sim-to-real de un laboratorio de robótica. 16 min.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="newsletter reveal" id="suscribete">
+        <div class="newsletter-inner">
+          <span class="eyebrow">Newsletter semanal</span>
+          <h2>Las noticias de IA que importan, cada viernes</h2>
+          <p>Sin ruido, sin relleno. Un resumen de 5 minutos con lo esencial, directo a tu correo.</p>
+          <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Suscrito ✓';">
+            <input type="email" placeholder="tu@correo.com" required aria-label="Correo electrónico">
+            <button type="submit" class="btn btn-primary">Suscribirme</button>
+          </form>
+          <p class="news-fine">Únete a más de 48,000 lectores. Cancela cuando quieras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+  <a href="/" class="footer-logo">
+    <img src="/src/img/logo_v0.3.png" alt="PalacioTECH Blog">
+  </a>
+  </p>
+</div>
+      <div>
+        <h5>Secciones</h5>
+        <ul>
+          <li><a href="#">Inteligencia Artificial</a></li>
+          <li><a href="#">IA Generativa</a></li>
+          <li><a href="#">Robótica</a></li>
+          <li><a href="#">Startups</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="#">Directorio de herramientas</a></li>
+          <li><a href="#">Biblioteca de prompts</a></li>
+          <li><a href="#">Guías de aprendizaje</a></li>
+          <li><a href="#">Línea de tiempo de IA</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>PalacioTECH</h5>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© PalacioTECH. Todos los derechos reservados.</span>
+      <div class="social-row">
+        <a href="#" class="icon-btn" aria-label="X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.6l-5.2-6.8L5.1 22H2l8.1-9.3L1 2h6.8l4.7 6.2L18.9 2z"/></svg>
+        </a>
+        <a href="#" class="icon-btn" aria-label="LinkedIn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // neural network canvas
+  const canvas = document.getElementById('network');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+  const heroSection = document.querySelector('.hero');
+  const mouse = {x:null, y:null};
+
+  function resize(){
+    W = canvas.width = heroSection.offsetWidth;
+    H = canvas.height = heroSection.offsetHeight;
+    const count = Math.min(70, Math.floor((W*H)/18000));
+    nodes = Array.from({length:count}, ()=>({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-.5)*.35, vy: (Math.random()-.5)*.35,
+      r: Math.random()*1.6+1
+    }));
+  }
+  window.addEventListener('resize', resize);
+  heroSection.addEventListener('mousemove', (e)=>{
+    const rect = heroSection.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top;
+  });
+  heroSection.addEventListener('mouseleave', ()=>{ mouse.x=null; mouse.y=null; });
+  resize();
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let n of nodes){
+      n.x += n.vx; n.y += n.vy;
+      if(n.x<0||n.x>W) n.vx*=-1;
+      if(n.y<0||n.y>H) n.vy*=-1;
+    }
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i], b=nodes[j];
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<130){
+          ctx.strokeStyle = `rgba(70,167,255,${(1-dist/130)*0.35})`;
+          ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+      if(mouse.x!==null){
+        const dx=nodes[i].x-mouse.x, dy=nodes[i].y-mouse.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<170){
+          ctx.strokeStyle = `rgba(217,169,47,${(1-dist/170)*0.5})`;
+          ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+        }
+      }
+    }
+    for(let n of nodes){
+      ctx.fillStyle='rgba(220,231,240,.6)';
+      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // header border intensifies on scroll
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', ()=>{
+    hdr.style.borderBottomColor = window.scrollY>10 ? 'rgba(255,255,255,.14)' : 'rgba(255,255,255,.08)';
+  });
+</script>
+
+</body>
+</html>
