@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -20,8 +21,8 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#destacado">Inicio</a></li>
       <li><a href="#rrutas">Rutas</a></li>
-      <li><a href="#herramientas">Recursos</a></li>
-      <li><a href="#voces">Nosotros</a></li>
+      <li><a href="#recursos-premium">Recursos</a></li>
+      <li><a href="#herramientas">Herramientas</a></li>
       <li><a href="#categorias">Comunidad</a></li>
       <li class="nav-cta-mobile"><a href="#suscribete" class="btn btn-primary">Suscribirme</a></li>
     </ul>
@@ -65,10 +66,120 @@
 
   <section class="section" id="destacado">
     <div class="wrap">
-      <div class="featured reveal">
-        <div class="featured-media">
-          <div class="grid-overlay"></div>
-        </div>
+      <!-- Lado derecho: Tarjeta de membresía e ilustración -->
+            <div class="membership-card-wrapper">
+                <!-- Ilustración isométrica premium -->
+                <div class="premium-illustration isometric-illustration">
+                    <div class="illustration-scene">
+                        
+                        <!-- Base / Grid isométrico -->
+                        <div class="isometric-grid">
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                        </div>
+
+                        <!-- Desarrollador 1 (izquierda) -->
+                        <div class="developer developer-1">
+                            <div class="dev-body">
+                                <div class="dev-head"></div>
+                                <div class="dev-torso"></div>
+                                <div class="dev-arm arm-left"></div>
+                                <div class="dev-arm arm-right"></div>
+                            </div>
+                            <!-- Pantalla flotante del dev 1 -->
+                            <div class="floating-screen screen-1">
+                                <div class="screen-content">
+                                    <div class="code-line"></div>
+                                    <div class="code-line short"></div>
+                                    <div class="code-line"></div>
+                                    <div class="code-line short"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Desarrollador 2 (derecha) -->
+                        <div class="developer developer-2">
+                            <div class="dev-body">
+                                <div class="dev-head"></div>
+                                <div class="dev-torso"></div>
+                                <div class="dev-arm arm-left"></div>
+                                <div class="dev-arm arm-right"></div>
+                            </div>
+                            <!-- Pantalla flotante del dev 2 -->
+                            <div class="floating-screen screen-2">
+                                <div class="screen-content">
+                                    <div class="graph-bar"></div>
+                                    <div class="graph-bar tall"></div>
+                                    <div class="graph-bar"></div>
+                                    <div class="graph-bar medium"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Desarrollador 3 (centro, más grande) -->
+                        <div class="developer developer-3">
+                            <div class="dev-body">
+                                <div class="dev-head"></div>
+                                <div class="dev-torso"></div>
+                                <div class="dev-arm arm-left"></div>
+                                <div class="dev-arm arm-right pointing"></div>
+                            </div>
+                            <!-- Pantalla central holográfica -->
+                            <div class="holographic-screen">
+                                <div class="holographic-content">
+                                    <div class="holographic-title">PalacioTECH</div>
+                                    <div class="holographic-code">
+                                        <span class="hl-keyword">const</span> 
+                                        <span class="hl-var">future</span> 
+                                        <span class="hl-operator">=</span> 
+                                        <span class="hl-string">"build together"</span>
+                                    </div>
+                                    <div class="holographic-code">
+                                        <span class="hl-keyword">await</span> 
+                                        <span class="hl-var">community</span>
+                                        <span class="hl-operator">.</span>
+                                        <span class="hl-method">grow</span>
+                                        <span class="hl-operator">()</span>
+                                    </div>
+                                    <div class="holographic-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Elementos flotantes decorativos -->
+                        <div class="float-element element-1">
+                            <div class="float-icon">⚡</div>
+                        </div>
+                        <div class="float-element element-2">
+                            <div class="float-icon">🧩</div>
+                        </div>
+                        <div class="float-element element-3">
+                            <div class="float-icon">🤖</div>
+                        </div>
+                        <div class="float-element element-4">
+                            <div class="float-icon">📊</div>
+                        </div>
+
+                        <!-- Líneas de conexión entre elementos -->
+                        <div class="connection-line conn-1"></div>
+                        <div class="connection-line conn-2"></div>
+                        <div class="connection-line conn-3"></div>
+
+                        <!-- Partículas brillantes -->
+                        <div class="particle p1"></div>
+                        <div class="particle p2"></div>
+                        <div class="particle p3"></div>
+                        <div class="particle p4"></div>
+                        <div class="particle p5"></div>
+
+                        <!-- Luz ambiental dorada -->
+                        <div class="ambient-glow gold-glow"></div>
+                        <div class="ambient-glow blue-glow"></div>
+                    </div>
+                </div>
         <div class="featured-body">
           <span class="tag">El momento es ahora.</span>
           <h3>Construye lo que imaginas.</h3>
@@ -134,189 +245,303 @@
     </div>
   </section>
 
-  <section class="section" id="articulos">
+  <!-- ============================================================ -->
+  <!-- NUEVA SECCIÓN: RECURSOS PREMIUM                               -->
+  <!-- ============================================================ -->
+  <section class="section" id="recursos-premium" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <span class="eyebrow">Actualidad</span>
-          <h2>Últimos artículos</h2>
-          <p>Cobertura diaria sobre los lanzamientos, papers y decisiones que están moviendo la industria.</p>
+          <span class="eyebrow">Recursos Premium</span>
+          <h2>Herramientas esenciales para tu desarrollo</h2>
+          <p>Material cuidadosamente seleccionado para potenciar tu aprendizaje y productividad.</p>
         </div>
-        <a href="#" class="view-all">Ver archivo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#" class="view-all">Ver todos <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="card-grid">
-        <article class="article-card reveal">
-          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#07121f,#15528a 60%,#91ccff);"></div></div>
-          <div class="card-body">
-            <span class="tag">Machine Learning</span>
-            <h4>Por qué los modelos pequeños están ganando terreno frente a los gigantes</h4>
-            <p>La eficiencia por parámetro se convierte en la nueva métrica que importa a los equipos de producto.</p>
-            <div class="card-meta"><span>Diego Franco</span><span>6 min</span></div>
+
+      <div class="premium-grid">
+        <!-- Cheatsheets -->
+        <div class="premium-card reveal">
+          <div class="premium-image">
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=450&fit=crop&crop=center&q=80&auto=format" alt="Floating developer documentation" loading="lazy" />
           </div>
-        </article>
-        <article class="article-card reveal">
-          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#08101a,#17395d 55%,#46a7ff);"></div></div>
-          <div class="card-body">
-            <span class="tag">IA Generativa</span>
-            <h4>Dentro del nuevo motor de video que genera escenas de diez minutos</h4>
-            <p>Analizamos la arquitectura detrás del salto de calidad en generación de video con coherencia temporal.</p>
-            <div class="card-meta"><span>Valentina Ríos</span><span>8 min</span></div>
+          <div class="premium-content">
+            <span class="category-badge">📄 Cheatsheets</span>
+            <div class="premium-header">
+              <span class="premium-icon" data-icon="file-text"></span>
+              <h3 class="premium-title">Cheatsheets</h3>
+            </div>
+            <p class="premium-description">Floating developer documentation &amp; code references in an elegant dark workspace.</p>
+            <button class="premium-cta">
+              Explore Resource <span class="arrow">→</span>
+            </button>
           </div>
-        </article>
-        <article class="article-card reveal">
-          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#09151d,#164f70 55%,#7fbee9);"></div></div>
-          <div class="card-body">
-            <span class="tag">Ciberseguridad</span>
-            <h4>Los ataques de prompt injection que ya preocupan a la banca</h4>
-            <p>Equipos de seguridad describen los vectores más comunes contra agentes con acceso a sistemas críticos.</p>
-            <div class="card-meta"><span>Mauricio León</span><span>7 min</span></div>
+        </div>
+
+        <!-- Prompts IA -->
+        <div class="premium-card reveal">
+          <div class="premium-image">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&crop=center&q=80&auto=format" alt="Futuristic AI interface" loading="lazy" />
           </div>
-        </article>
-        <article class="article-card reveal">
-          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#171107,#5c4212 55%,#f5ce62);"></div></div>
-          <div class="card-body">
-            <span class="tag">Futuro del Trabajo</span>
-            <h4>Cómo tres equipos de diseño reorganizaron sus flujos con agentes de IA</h4>
-            <p>Casos reales de estudios que redujeron a la mitad el tiempo de iteración creativa.</p>
-            <div class="card-meta"><span>Camila Duarte</span><span>5 min</span></div>
+          <div class="premium-content">
+            <span class="category-badge">🤖 Prompts IA</span>
+            <div class="premium-header">
+              <span class="premium-icon" data-icon="bot"></span>
+              <h3 class="premium-title">Prompts IA</h3>
+            </div>
+            <p class="premium-description">Futuristic AI interface with holographic windows, neural networks &amp; golden lighting.</p>
+            <button class="premium-cta">
+              Explore Resource <span class="arrow">→</span>
+            </button>
           </div>
-        </article>
-        <article class="article-card reveal">
-          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#07111e,#183b67 55%,#46a7ff);"></div></div>
-          <div class="card-body">
-            <span class="tag">Robótica</span>
-            <h4>El brazo robótico que aprende tareas nuevas viendo un solo video</h4>
-            <p>Un vistazo al aprendizaje por imitación de una sola muestra aplicado a manufactura ligera.</p>
-            <div class="card-meta"><span>Renata Ibarra</span><span>9 min</span></div>
+        </div>
+
+        <!-- UI Components -->
+        <div class="premium-card reveal">
+          <div class="premium-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&crop=center&q=80&auto=format" alt="UI cards with glassmorphism" loading="lazy" />
           </div>
-        </article>
-        <article class="article-card reveal">
-          <div class="card-media"><div class="fill" style="background:linear-gradient(150deg,#0b131d,#1a4777 55%,#d9a92f);"></div></div>
-          <div class="card-body">
-            <span class="tag">Computación Cuántica</span>
-            <h4>Qué significa realmente la última corrección de errores cuánticos</h4>
-            <p>Traducimos el paper más citado del mes a términos que cualquier equipo de producto puede entender.</p>
-            <div class="card-meta"><span>Diego Franco</span><span>10 min</span></div>
+          <div class="premium-content">
+            <span class="category-badge">🧩 UI Components</span>
+            <div class="premium-header">
+              <span class="premium-icon" data-icon="puzzle"></span>
+              <h3 class="premium-title">UI Components</h3>
+            </div>
+            <p class="premium-description">Beautiful floating UI cards, dashboards &amp; design systems with glassmorphism.</p>
+            <button class="premium-cta">
+              Explore Resource <span class="arrow">→</span>
+            </button>
           </div>
-        </article>
+        </div>
+
+        <!-- Roadmaps -->
+        <div class="premium-card reveal">
+          <div class="premium-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&crop=center&q=80&auto=format" alt="Learning milestones" loading="lazy" />
+          </div>
+          <div class="premium-content">
+            <span class="category-badge">🗺️ Roadmaps</span>
+            <div class="premium-header">
+              <span class="premium-icon" data-icon="map"></span>
+              <h3 class="premium-title">Roadmaps</h3>
+            </div>
+            <p class="premium-description">Connected learning milestones visualized with glowing nodes &amp; elegant flow lines.</p>
+            <button class="premium-cta">
+              Explore Resource <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Code Snippets -->
+        <div class="premium-card reveal">
+          <div class="premium-image">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=450&fit=crop&crop=center&q=80&auto=format" alt="Code editor with syntax highlighting" loading="lazy" />
+          </div>
+          <div class="premium-content">
+            <span class="category-badge">⚡ Code Snippets</span>
+            <div class="premium-header">
+              <span class="premium-icon" data-icon="code-2"></span>
+              <h3 class="premium-title">Code Snippets</h3>
+            </div>
+            <p class="premium-description">Premium code editor displaying perfectly formatted code with subtle syntax highlighting.</p>
+            <button class="premium-cta">
+              Explore Resource <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Developer Toolkit -->
+        <div class="premium-card reveal">
+          <div class="premium-image">
+            <img src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=800&h=450&fit=crop&crop=center&q=80&auto=format" alt="Developer tools collection" loading="lazy" />
+          </div>
+          <div class="premium-content">
+            <span class="category-badge">🛠 Developer Toolkit</span>
+            <div class="premium-header">
+              <span class="premium-icon" data-icon="wrench"></span>
+              <h3 class="premium-title">Developer Toolkit</h3>
+            </div>
+            <p class="premium-description">Curated collection of terminals, APIs, developer tools &amp; productivity apps.</p>
+            <button class="premium-cta">
+              Explore Resource <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="categorias" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+<!-- ============================================================ -->
+<!-- SECCIÓN: MEMBRESÍA PALACIOTECH CON ILUSTRACIÓN ISOMÉTRICA    -->
+<!-- ============================================================ -->
+<section class="section membership" id="membresia">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">Explorar</span>
-          <h2>Temas populares</h2>
+        <!-- Encabezado de la sección -->
+        <div class="membership-header reveal">
+            <span class="eyebrow">Membresía PalacioTECH</span>
+            <h2>Impulsa tu crecimiento junto a una comunidad que construye el futuro.</h2>
+            <p>Accede a recursos exclusivos, sesiones privadas, mentorías, desafíos prácticos y una comunidad de desarrolladores que aprende, comparte y crea proyectos reales cada semana.</p>
         </div>
-      </div>
-      <div class="pill-cloud reveal">
-        <a href="#" class="pill">Inteligencia Artificial</a>
-        <a href="#" class="pill">IA Generativa</a>
-        <a href="#" class="pill">Machine Learning</a>
-        <a href="#" class="pill">Robótica</a>
-        <a href="#" class="pill">Automatización</a>
-        <a href="#" class="pill">Agentes de IA</a>
-        <a href="#" class="pill">Prompt Engineering</a>
-        <a href="#" class="pill">OpenAI</a>
-        <a href="#" class="pill">Anthropic</a>
-        <a href="#" class="pill">Google AI</a>
-        <a href="#" class="pill">Microsoft AI</a>
-        <a href="#" class="pill">Startups</a>
-        <a href="#" class="pill">Futuro del Trabajo</a>
-        <a href="#" class="pill">Programación</a>
-        <a href="#" class="pill">Ciberseguridad</a>
-        <a href="#" class="pill">Cloud Computing</a>
-        <a href="#" class="pill">Computación Cuántica</a>
-      </div>
+
+            
+
+                <!-- Tarjeta de membresía -->
+                <div class="pricing-card">
+                    <div class="card-badge">⭐ Premium Membership</div>
+                    <h3 class="card-title">PalacioTECH Academy</h3>
+                    <p class="card-subtitle">Todo lo que necesitas para convertirte en un mejor desarrollador.</p>
+
+                    <div class="pricing">
+                        <span class="price">$10 USD</span>
+                        <span class="price-period">/mes</span>
+                    </div>
+
+                    <hr class="pricing-divider">
+
+                    <ul class="card-benefits">
+                        <li> Acceso a la comunidad privada</li>
+                        <li> Recursos exclusivos</li>
+                        <li> Prompts IA Premium</li>
+                        <li> Biblioteca completa</li>
+                        <li> Roadmaps avanzados</li>
+                        <li> Plantillas profesionales</li>
+                        <li> Code Reviews</li>
+                        <li> Eventos exclusivos</li>
+                        <li> Networking con desarrolladores</li>
+                        <li> Actualizaciones permanentes</li>
+                    </ul>
+
+                    <!-- CTAs -->
+                    <a href="#" class="btn btn-primary btn-gold btn-block">Unirme ahora</a>
+                    <a href="#" class="btn btn-ghost btn-block">Conocer beneficios</a>
+                </div>
+
+                <!-- Indicadores de confianza -->
+                <div class="trust-indicators">
+                    <span class="trust-chip">👥 Comunidad activa</span> 
+                    <span class="trust-chip">🚀 Actualizaciones frecuentes</span>
+                    <span class="trust-chip">💬 Soporte exclusivo</span>
+                    <span class="trust-chip">🔒 Acceso privado</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
+  
 
   
-  <section class="section">
-    <div class="wrap">
-      <div class="newsletter reveal" id="suscribete">
-        <div class="newsletter-inner">
-          <span class="eyebrow">PalacioTECH Members</span>
-          <h2>Únete a la membresía de PalacioTECH</h2>
-          <p>Desbloquea cursos completos, proyectos guiados, plantillas, prompts, recursos descargables y contenido exclusivo. Todo en un solo lugar para que nunca dejes de aprender y construir.</p>
-          <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Suscrito ✓';">
-            <input type="email" placeholder="tu@correo.com" required aria-label="Correo electrónico">
-            <button type="submit" class="btn btn-primary">🎁 Beneficio de bienvenida</button>
-          </form>
-          <p class="news-fine">👥 Únete a más de 1.000 desarrolladores que aprenden con PalacioTECH.</p>
-          <p class="news-fine">🛡️Acceso a la comunidad privada <br> 🎥 Sesiones exclusivas para miembros <br> 🤝 Networking con otros desarrolladores <br> 💬 Resolución de dudas</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-  <a href="/" class="footer-logo">
-    <img src="/src/img/logo.png" alt="PalacioTECH Blog">
-  </a>
-  </p>
-</div>
-      <div>
-        <h5>Navegación</h5>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Rutas</a></li>
-          <li><a href="#">Recursos</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Comunidad</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Recursos</h5>
-        <ul>
-          <li><a href="#">Herramientas</a></li>
-          <li><a href="#">Biblioteca de prompts</a></li>
-          <li><a href="#">Plantillas</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>PalacioTECH</h5>
-        <ul>
-          <li><a href="#">Sobre nosotros</a></li>
-          <li><a href="#">Trabaja con nosotros</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Términos</a></li>
-          <li><a href="#">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© PalacioTECH. Todos los derechos reservados.</span>
-      <span>Hecho con amor❤️ <br> por Jesús Palacio</span>
-      <div class="social-row">
-        <a href="https://www.facebook.com/Palaciotechsas" class="icon-btn" target="_blank" aria-label="Facebook">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6H17V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.3V11H8v3h2.5v8h3z"/>
-        </svg>
-      </a>
+<!-- ====== FOOTER PREMIUM ====== -->
+    <footer class="footer">
+        <div class="wrap">
 
-      <a href="https://tiktok.com/@palaciotech" class="icon-btn" target="_blank" aria-label="TikTok">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.6 2c.3 2.3 1.7 4 3.9 4.6v3.2c-1.6 0-3-.5-4.2-1.5v6.4c0 3.8-3.1 6.8-6.8 6.8S2.7 18.5 2.7 14.8 5.8 8 9.5 8c.4 0 .8 0 1.2.1v3.3c-.4-.1-.8-.2-1.2-.2-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6V2h3.5z"/>
-        </svg>
-    </a>
-    </div>
-    </div>
-  </div>
-</footer>
+            <!-- Grid principal -->
+            <div class="footer-grid">
+
+                <!-- COLUMNA 1: BRAND -->
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo" aria-label="PalacioTECH Academy">
+                        <div class="logo-container">
+                            <div class="logo-glow"></div>
+                            <!-- Reemplaza 'logo.png' con tu propia imagen PNG (transparente) -->
+                            <img src="/src/img/logo.png" alt="PalacioTECH Academy Logo" class="logo-img">
+                        </div>
+                        
+                    </a>
+                    <p class="brand-description">
+                        Construimos experiencias de aprendizaje para desarrolladores que quieren crear tecnología con impacto.
+                    </p>
+                    <div class="social-row">
+                        <!-- GitHub -->
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="#" class="social-link" aria-label="X">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768"/><path d="M19 4l-6.768 6.768"/></svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                        <!-- Discord -->
+                        <a href="#" class="social-link" aria-label="Discord">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9.5C18 9.5 16.5 8.5 15 8.5C13.5 8.5 12.5 9.5 12 10.5C11.5 9.5 10.5 8.5 9 8.5C7.5 8.5 6 9.5 6 9.5C6 9.5 5 12.5 5 14C5 15.5 6 17 7 17.5C8 18 9 17.5 9 17.5L10 16.5M14 16.5L15 17.5C15 17.5 16 18 17 17.5C18 17 19 15.5 19 14C19 12.5 18 9.5 18 9.5"/><path d="M16 12.5C16.5 12.5 17 13 17 13.5C17 14 16.5 14.5 16 14.5C15.5 14.5 15 14 15 13.5C15 13 15.5 12.5 16 12.5Z"/><path d="M8 12.5C8.5 12.5 9 13 9 13.5C9 14 8.5 14.5 8 14.5C7.5 14.5 7 14 7 13.5C7 13 7.5 12.5 8 12.5Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- COLUMNA 2: ACADEMY -->
+                <div class="footer-col">
+                    <h5>Academy</h5>
+                    <ul>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Recursos</a></li>
+                        <li><a href="#">Roadmaps</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Membresía</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMNA 3: COMPAÑÍA -->
+                <div class="footer-col">
+                    <h5>PalacioTECH</h5>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMNA 4: RECURSOS + NEWSLETTER -->
+                <div class="footer-col">
+                    <h5>Recursos</h5>
+                    <ul>
+                        <li><a href="#">Cheatsheets</a></li>
+                        <li><a href="#">Prompts IA</a></li>
+                        <li><a href="#">UI Components</a></li>
+                        <li><a href="#">Code Snippets</a></li>
+                        <li><a href="#">Developer Toolkit</a></li>
+                    </ul>
+
+                    <!-- Newsletter block -->
+                    <div class="footer-newsletter">
+                        <h6>Mantente actualizado.</h6>
+                        <p>Recibe nuevos recursos, artículos y contenido exclusivo directamente en tu correo.</p>
+                        <form class="newsletter-form" action="#" method="post">
+                            <input type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico" required />
+                            <button type="submit" class="btn-gold">Suscribirme</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM BAR -->
+            <div class="footer-bottom">
+                <div class="copy">
+                    <span>© 2026 PalacioTECH SAS.</span>
+                    <span>Todos los derechos reservados.</span>
+                </div>
+                <div class="love">
+                    Construido con mucho <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> por Jesús Palacio.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Términos</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
 <script>
   // reveal on scroll
@@ -324,6 +549,28 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Lucide icons for premium cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const iconMap = {
+      'file-text': 'file-text',
+      'bot': 'bot',
+      'puzzle': 'puzzle',
+      'map': 'map',
+      'code-2': 'code-2',
+      'wrench': 'wrench'
+    };
+
+    document.querySelectorAll('.premium-icon[data-icon]').forEach(el => {
+      const iconName = el.getAttribute('data-icon');
+      if (iconName && iconMap[iconName]) {
+        const icon = lucide.createIcon(iconMap[iconName]);
+        if (icon) {
+          el.appendChild(icon);
+        }
+      }
+    });
+  });
 
   // neural network canvas
   const canvas = document.getElementById('network');
